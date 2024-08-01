@@ -45,7 +45,7 @@ const Form = () => {
         <div className="bg-image-2 " />
         <div className=" bg-slate-100  flex flex-col md:flex-row absolute lg:w-[50%] md:w-[75%] mt-[-52rem]   lg:top-[54rem] md:left-[8rem] md:top-[55rem] py-[2rem] md:pb-[6rem] pb-[5rem] w-full">
           <form className="flex flex-col px-8 py-0 md:w-2/3 space-y-10  ">
-            <h2 className="text-[rgb(3,57,108)] text-2xl font-semibold font-roboto">
+            <h2 className="text-[rgb(3,57,108)] text-2xl text-center lg:text-left font-semibold font-roboto">
               Contact us
             </h2>
 
@@ -83,7 +83,7 @@ const Form = () => {
               required
               onChange={(e) => setText(e.target.value)}
             />
-            <div className="">
+            <div className="flex justify-center lg:justify-start  ">
               <button
                 onClick={(e) => handleSubmit(e)}
                 className="px-4 py-2 bg-[#055589] focus:bg-black rounded-md text-white font-semibold"

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useRef, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -40,11 +40,44 @@ function App() {
       pic: ship2,
     },
   ];
+    function callback(entries) {
+      entries.forEach( entry => {
+        if(entry.isIntersecting) {
+          console.log(entry.target.dataset.animationClass, "madEntries");
+          const animationClass = entry.target.dataset.animationClass
+          entry.target.classList.add(animationClass);
+          
+        }
+        
+      });
 
+    }
+
+    const section = useRef([])
+
+    useEffect(()=> {
+      const observer = new IntersectionObserver(callback  );
+
+      section.current.forEach(section => {
+        if (section) {
+          observer.observe(section);
+        }
+      } ) 
+      
+      
+      return ()=>{
+        section.current.forEach(section=>{
+          if (section) {
+            observer.unobserve(section);
+          }
+        }
+          )}  
+    },[]) 
+ 
   return (
     <>
       {/* carousell */}
-      <div className="relative slideinRight    ">
+      <div className="relative    ">
         <Carousel
           animationHandler="fade"
           swipeable={false}
@@ -65,12 +98,12 @@ function App() {
                     alt=""
                   />
 
-                  <div className="lg:w-1/2 absolute top-[5rem] left-[1.5rem]   lg:top-[15rem] flex flex-col items-center  lg:left-[3rem] space-y-8   ">
-                    <h2 className="text-white text-center text-4xl lg:text-5xl   max-w-sm lg:max-w-sm font-bold font-roboto">
+                  <div className="lg:w-1/2 fadeInDown absolute top-[5rem] left-[1.5rem]   lg:top-[15rem] flex flex-col items-center  lg:left-[3rem] space-y-8   ">
+                    <h2 className="text-white text-center text-4xl lg:text-6xl   max-w-sm lg:max-w-screen-lg font-bold font-roboto">
                       {item.text}
                     </h2>
                     <div className="font-semibold font-roboto space-y-6 lg:ml-[2rem] text-white  ">
-                      <p className="text-normal font-roboto lg:max-w-sm text-sm font-normal  text-center">
+                      <p className="text-normal font-roboto lg:max-w-sm text-xl font-normal  text-center">
                         Connecting Continents, Fast-tracking Success
                       </p>
                     </div>
@@ -99,7 +132,11 @@ function App() {
       {/* About us */}
 
       <div className="  flex justify-center items-center flex-col  bg-[#F3F5F5]  lg:space-y-0 mt-[-2.5rem] space-y-[3rem] ">
-        <h2 className="text-center fadeInDown text-[#3A3A3A] flex justify-center max-w-xl lg:max-w-xl  text-3xl font-bold mb-10 mt-12 ">
+        <h2
+          ref={(el) => (section.current[0] = el)}
+          data-animation-class="fadeInDown"
+          className="text-center  text-[#3A3A3A] flex justify-center max-w-sm text-3xl lg:max-w-5xl lg:text-5xl font-bold mb-10 mt-12 "
+        >
           Blue Channel logistics efficiently connecting businesses worldwide
         </h2>
         <div className="flex lg:flex-row flex-col space-y-20 lg:items-center px-[2rem]  lg:space-x-[5rem] lg:container lg:mx-auto">
@@ -110,10 +147,11 @@ function App() {
             </p>
           </div>
           <div className="space-y-3 flex-col flex lg:items-start items-center   ">
-            {/* <h3 className="text-[#3A3A3A] font-bold mt-[5rem] bg-red-400 ">
-              MAKE ALMOST ANYTHING
-            </h3> */}
-            <div className="flex flex-col mb-14 lg:items-start items-center space-y-8">
+            <div
+              ref={(el) => (section.current[1] = el)}
+              data-animation-class="slideinRight"
+              className="flex  flex-col mb-14 lg:items-start items-center space-y-8"
+            >
               <h2 className="text-5xl text-[#03396C] lg:text-left text-center font-semibold font-roboto ">
                 Who Are We?
               </h2>
@@ -143,7 +181,11 @@ function App() {
       <h1 className="font-roboto text-center text-5xl text-blue-900  font-bold my-[1rem] p-8">
         Our services
       </h1>
-      <div className="bg-white p-2 lg:space-x-4 flex lg:flex-row flex-col items-center  lg:justify-between  lg:px-24 font-roboto">
+      <div
+        ref={(el) => (section.current[2] = el)}
+        data-animation-class="fadeInDown"
+        className="bg-white p-2 lg:space-x-4 flex lg:flex-row flex-col items-center  lg:justify-between  lg:px-24 font-roboto"
+      >
         <div className="lg:w-1/3 p-8 text-center space-y-4 flex flex-col items-center">
           <img src={truck} className="bg-cover brightness-75" alt="" />
           <h2 className="font-bold text-lg">Road freight forwarding</h2>
@@ -170,7 +212,11 @@ function App() {
         </div>
       </div>
 
-      <div className="bg-white p-2 lg:space-x-4 flex lg:flex-row flex-col items-center  lg:justify-between font-roboto mb-[5rem] mt-[2rem]  lg:px-24">
+      <div
+        ref={(el) => (section.current[0] = el)}
+        data-animation-class="fadeInDown"
+        className="bg-white p-2 lg:space-x-4 flex lg:flex-row flex-col items-center  lg:justify-between font-roboto mb-[5rem] mt-[2rem]  lg:px-24"
+      >
         <div className="lg:w-1/3 p-8 text-center space-y-4 flex flex-col items-center">
           <img src={customs} className="bg-cover brightness-75" alt="" />
           <h2 className="font-bold text-lg">Customs clearance</h2>
@@ -198,7 +244,7 @@ function App() {
       </div>
 
       {/* Why choose us */}
-      <WhyChoose/>
+      <WhyChoose section={section} />
 
       {/* contact form  */}
       <Form />

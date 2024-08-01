@@ -40,11 +40,11 @@
   animation: slideinLeft 1.5s ease-in-out 1s;
 }
 .slideinRight {
-  animation: slideinRight 1.5s ease-in-out 2s;
+  animation: slideinRight 1.5s ease-in-out 1s;
 }
 
 .fadeInDown {
-  animation: fadeInDown 1s ease-in-out 2s;
+  animation: fadeInDown 1.5s ease-in-out 1s;
 }
 .yellow {
   background-image: url("./assets/10004.jpeg");
