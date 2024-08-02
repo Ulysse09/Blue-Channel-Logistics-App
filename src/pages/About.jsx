@@ -7,6 +7,7 @@ import air from "../assets/air.jpg";
 import trucks from "../assets/trucks.jpg";
 import WhyChoose from "../sections/WhyChoose";
 import blutruck from '../assets/blutruck.jpg'
+import customIntersection from "../customHooks/customIntersection";
 const About = () => {
   const testimonies = [
     {
@@ -25,6 +26,7 @@ const About = () => {
       title: "COO",
     },
   ];
+  const section = customIntersection()
   return (
     <>
       {/* header image */}
@@ -128,7 +130,7 @@ const About = () => {
       </div>
 
       {/* Why choose us */}
-      <WhyChoose />
+      <WhyChoose section={section} />
 
       {/* Team members  */}
       <div className="bg-[#F3F5F5] lg:px-[8rem] px-[1rem] mt-[4rem] pb-[5rem]">

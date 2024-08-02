@@ -37,14 +37,14 @@
   }
 }
 .slideinLeft {
-  animation: slideinLeft 1.5s ease-in-out 1s;
+  animation: slideinLeft 1.5s ease-in-out 0.2s;
 }
 .slideinRight {
-  animation: slideinRight 1.5s ease-in-out 1s;
+  animation: slideinRight 1.5s ease-in-out 0.2s;
 }
 
 .fadeInDown {
-  animation: fadeInDown 1.5s ease-in-out 1s;
+  animation: fadeInDown 1.5s ease-in-out 0.2s;
 }
 .yellow {
   background-image: url("./assets/10004.jpeg");

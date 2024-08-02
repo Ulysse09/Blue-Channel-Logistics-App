@@ -23,6 +23,7 @@ import { IoIosTimer } from "react-icons/io";
 import { RiGlobalLine } from "react-icons/ri";
 import { MdDeliveryDining } from "react-icons/md";
 import WhyChoose from "./sections/WhyChoose";
+import customIntersection from "./customHooks/customIntersection";
 
 function App() {
   const slide = [
@@ -40,41 +41,11 @@ function App() {
       pic: ship2,
     },
   ];
-    function callback(entries) {
-      entries.forEach( entry => {
-        if(entry.isIntersecting) {
-          console.log(entry.target.dataset.animationClass, "madEntries");
-          const animationClass = entry.target.dataset.animationClass
-          entry.target.classList.add(animationClass);
-          
-        }
-        
-      });
+    
+  const section = customIntersection()
+     
 
-    }
-
-    const section = useRef([])
-
-    useEffect(()=> {
-      const observer = new IntersectionObserver(callback  );
-
-      section.current.forEach(section => {
-        if (section) {
-          observer.observe(section);
-        }
-      } ) 
-      
-      
-      return ()=>{
-        section.current.forEach(section=>{
-          if (section) {
-            observer.unobserve(section);
-          }
-        }
-          )}  
-    },[]) 
- 
-  return (
+       return (
     <>
       {/* carousell */}
       <div className="relative    ">
@@ -213,7 +184,7 @@ function App() {
       </div>
 
       <div
-        ref={(el) => (section.current[0] = el)}
+        ref={(el) => (section.current[3] = el)}
         data-animation-class="fadeInDown"
         className="bg-white p-2 lg:space-x-4 flex lg:flex-row flex-col items-center  lg:justify-between font-roboto mb-[5rem] mt-[2rem]  lg:px-24"
       >
@@ -244,10 +215,10 @@ function App() {
       </div>
 
       {/* Why choose us */}
-      <WhyChoose section={section} />
+      <WhyChoose section={section.current} />
 
       {/* contact form  */}
-      <Form />
+      <Form section={section.current} />
     </>
   );
 }
