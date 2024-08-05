@@ -1,5 +1,9 @@
 import black from "../../assets/Black.png";
 
+import { CiFacebook, CiInstagram, CiYoutube } from "react-icons/ci";
+import { FaXTwitter } from "react-icons/fa6";
+import { LiaLinkedin } from "react-icons/lia";
+
 const Footer = () => {
   {
     /* footer black --> */
@@ -8,7 +12,7 @@ const Footer = () => {
     <div class="bg-black">
       {/* flex-container --> */}
       <div class="container flex flex-col-reverse justify-between px-6 py-10 mx-auto space-y-8 md:space-y-0">
-        <div class="flex flex-col-reverse items-center justify-between space-y-12 md:flex-row md:space-y-0 md:items-start">
+        <div class="flex flex-col-reverse items-center justify-between space-y-12 md:flex-row md:space-y-0 md:items-center">
           <div class="mx-auto my-6  text-center text-white md:hidden">
             Copyright &copy; All rights reserved.
           </div>
@@ -17,53 +21,44 @@ const Footer = () => {
             <img src={black} className="h-[12rem]" alt="" />
           </div>
           {/* social links container --> */}
-          <div class="flex justify-center space-x-4">
+          <div class="flex items-center  justify-center space-x-4">
             {/* link1 --> */}
             <a href="/">
-              <img src="./img/icon-facebook.svg" class="h-8" alt="" />
+              <FaXTwitter size={34} className="text-white" />
             </a>
             {/* link2 --> */}
             <a href="/">
-              <img src="./img/icon-youtube.svg" class="h-8" alt="" />
+              <CiFacebook size={34} className="text-white" />
             </a>
             {/* link3 --> */}
             <a href="/">
-              <img src="./img/icon-twitter.svg" class="h-8" alt="" />
+              <CiYoutube size={34} className="text-white" />
             </a>
+
             {/* link4 --> */}
             <a href="/">
-              <img src="./img/icon-pinterest.svg" class="h-8" alt="" />
+              <LiaLinkedin size={34} className="text-white" />
             </a>
-            {/* link1 --> */}
+            {/* link5 --> */}
             <a href="/">
-              <img src="./img/icon-instagram.svg" class="h-8" alt="" />
+              <CiInstagram size={34} className="text-white" />
             </a>
           </div>
+
           {/* list container  */}
           <div class="flex justify-around space-x-32">
             <div class="flex flex-col space-y-3 text-white">
               <a href="" class="hover:underline text-white">
                 About
               </a>
-              <a href="#services" class="text-white">
+              <a href="#services" class="hover:underline text-white">
                 Services
               </a>
-              <a href="/" class="hover:text-pink-100">
+              <a href="/" class="hover:underline hover:text-pink-100">
                 Products
               </a>
-              <a href="/" class="hover:text-pink-100">
+              <a href="/" class="hover:underline hover:text-pink-100">
                 About
-              </a>
-            </div>
-            <div class="flex flex-col space-y-3 text-white">
-              <a href="/" class="hover:text-brightRed">
-                Careers
-              </a>
-              <a href="/" class="hover:text-brightRed">
-                Community
-              </a>
-              <a href="/" class="hover:text-brightRed">
-                Privacy
               </a>
             </div>
           </div>
@@ -84,7 +79,7 @@ const Footer = () => {
               </div>
             </form>
             <div class="hidden text-white md:block mt-6">
-              Copyright &copy; 2022; All reserved
+              Copyright &copy; 2024; All reserved
             </div>
           </div>
         </div>

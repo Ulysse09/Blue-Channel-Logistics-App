@@ -3,9 +3,10 @@ import axios from "axios";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import customIntersection from "../../customHooks/customIntersection";
  
-const Form = ({section}) => {
- 
+const Form = () => {
+  const section = customIntersection()
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [subject, setSubject] = useState("");
@@ -46,7 +47,11 @@ const Form = ({section}) => {
         <div className="bg-image-2 " />
         <div className=" bg-slate-100  flex flex-col md:flex-row absolute lg:w-[50%] md:w-[75%] mt-[-52rem]   lg:top-[54rem] md:left-[8rem] md:top-[55rem] py-[2rem] md:pb-[6rem] pb-[5rem] w-full">
           <form className="flex flex-col px-8 py-0 md:w-2/3 space-y-10  ">
-            <h2 data-animation-class="fadeInDown" ref={(el) => (section[6]=el)} className="text-[rgb(3,57,108)] text-4xl text-center lg:text-left font-semibold font-roboto">
+            <h2
+              data-animation-class="fadeInDown"
+              ref={(el) => (section[6] = el)}
+              className="text-[rgb(3,57,108)] text-4xl text-center lg:text-left font-semibold font-roboto"
+            >
               Contact us
             </h2>
 
@@ -106,14 +111,16 @@ const Form = ({section}) => {
               <h2 className="font-bold text-xl text-[#3A3A3A] text-center">
                 Email
               </h2>
-              <p className="text-[#3A3A3A]">BlueChannel@gmail.rw</p>
+              <p className="text-[#3A3A3A]">bluechannellogistics@gmail.com</p>
             </div>
 
             <div>
-              <h2 className="font-bold text-xl text-[#3A3A3A] text-center">
+              <h2 className="font-bold space-y-4 text-xl text-[#3A3A3A] text-center">
                 Phone
               </h2>
-              <p className="text-[#3A3A3A]">+250 789 276 080</p>
+              <p className="text-[#3A3A3A]">+250788303036 </p>
+
+              <p className="text-[#3A3A3A]">+250788956162 </p>
             </div>
           </div>
         </div>

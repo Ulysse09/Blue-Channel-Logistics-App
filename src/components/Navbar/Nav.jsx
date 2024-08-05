@@ -4,12 +4,16 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { IoMdClose } from "react-icons/io";
 import Modal from "../Modal/Modal";
 import { Link } from "react-router-dom";
-
+ 
 const Nav = () => {
   const [openModal, setOpenModal] = useState(false);
   const handletoggle = () => {
+     
+    
     return setOpenModal(!openModal);
   };
+
+  const section = useRef(null)
 
   
   return (
@@ -61,7 +65,7 @@ const Nav = () => {
 
       {/* navigation modal */}
 
-      {openModal && <Modal handletoggle={handletoggle} />}
+      {openModal && <Modal ref={section} handletoggle={handletoggle} />}
     </nav>
   );
 };

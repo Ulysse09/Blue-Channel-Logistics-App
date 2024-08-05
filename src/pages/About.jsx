@@ -8,6 +8,7 @@ import trucks from "../assets/trucks.jpg";
 import WhyChoose from "../sections/WhyChoose";
 import blutruck from '../assets/blutruck.jpg'
 import customIntersection from "../customHooks/customIntersection";
+import OurPartners from "../components/OurPartners/OurPartners";
 const About = () => {
   const testimonies = [
     {
@@ -51,7 +52,7 @@ const About = () => {
       {/* header text  */}
 
       <div className=" w-full pt-[4rem] bg-slate-100 bg-gradient-to-b from-white">
-        <div className="md:flex justify-around   md:h-[30rem]">
+        <div className="md:flex px-8 justify-around   md:h-[30rem]">
           <div className=" font-roboto   md:w-1/2 pl-6 md:h-[29rem]">
             {/* </div> */}
             <h1 className="mt-[0.5rem] text-5xl text-sky-900 font-semibold">
@@ -80,8 +81,7 @@ const About = () => {
               className="  md:w-[32vw] md:h-[64vh]   rounded-md"
             />
 
-            <p className="mt-3 font-semibold text-slate-500">Innovation Lab</p>
-          </div>
+           </div>
         </div>
       </div>
 
@@ -133,39 +133,7 @@ const About = () => {
       <WhyChoose section={section} />
 
       {/* Team members  */}
-      <div className="bg-[#F3F5F5] lg:px-[8rem] px-[1rem] mt-[4rem] pb-[5rem]">
-        <h2 className="text-center text-5xl font-semibold py-8 text-[#03396C]">
-          Meet the team
-        </h2>
-        <Carousel
-          showArrows={true}
-          stopOnHover={true}
-          infiniteLoop={true}
-          useKeyboardArrows={true}
-          interval={2000}
-          autoPlay={true}
-        >
-          {testimonies.map((item) => {
-            return (
-              <div className="flex md:flex-row bg-white flex-col items-center px-[1rem] justify-evenly py-8 ">
-                <div className="md:w-1/2 flex flex-col space-y-6">
-                  <p className="text-[#3A3A3A] font-roboto text-4xl">
-                    {item.name}
-                  </p>
-                  <p className="font-bold text-5xl font-roboto">{item.title}</p>
-                </div>
-                <div className="">
-                  <img
-                    src={item.mainImage}
-                    className="lg:h-[40vh] md:h-[30vh] hover:brightness-50 transition-all duration-300 translate-y-[-10]"
-                    alt=""
-                  />
-                </div>
-              </div>
-            );
-          })}
-        </Carousel>
-      </div>
+       <OurPartners/>
     </>
   );
 };
