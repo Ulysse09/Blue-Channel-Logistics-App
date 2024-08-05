@@ -9,6 +9,7 @@ import WhyChoose from "../sections/WhyChoose";
 import blutruck from '../assets/blutruck.jpg'
 import customIntersection from "../customHooks/customIntersection";
 import OurPartners from "../components/OurPartners/OurPartners";
+import WhyChooseNoCta from "../sections/WhyChooseNoCta";
 const About = () => {
   const testimonies = [
     {
@@ -52,20 +53,20 @@ const About = () => {
       {/* header text  */}
 
       <div className=" w-full pt-[4rem] bg-slate-100 bg-gradient-to-b from-white">
-        <div className="md:flex px-8 justify-around   md:h-[30rem]">
+        <div className="md:flex  px-4 md:px-8 justify-around   md:h-[30rem]">
           <div className=" font-roboto   md:w-1/2 pl-6 md:h-[29rem]">
             {/* </div> */}
-            <h1 className="mt-[0.5rem] text-5xl text-sky-900 font-semibold">
+            <h1 className="md:mt-[0.5rem] text-5xl text-sky-900 font-semibold">
               What we are about ?
             </h1>
-            <p className="mt-[1.2rem]">
+            <p className="mt-[1.2rem] ">
               At Blue Channel Logistics, we are dedicated to transforming the
               logistics industry with innovative, reliable, and efficient
               solutions. Founded in 198, our company has grown into a trusted
               partner for businesses across various industries, delivering
               unparalleled logistics services that drive growth and success.
             </p>
-            <p className="mt-[1.2rem]">
+            <p className="mt-[1.2rem] mb-8 md:mb-0">
               Our team of experienced professionals is the backbone of our
               company. With expertise in logistics, supply chain management, and
               customer service, our team is committed to providing exceptional
@@ -74,7 +75,7 @@ const About = () => {
               industry knowledge and skills.
             </p>
           </div>
-          <div className="   flex flex-col items-center md:w-1/2 px-4 py-2 ">
+          <div className="pb-8 md:pb-0   flex flex-col items-center md:w-1/2 px-4 py-2 ">
             <img
               src={blutruck}
               alt=""
@@ -130,7 +131,7 @@ const About = () => {
       </div>
 
       {/* Why choose us */}
-      <WhyChoose section={section} />
+      <WhyChooseNoCta section={section} />
 
       {/* Team members  */}
        <OurPartners/>
